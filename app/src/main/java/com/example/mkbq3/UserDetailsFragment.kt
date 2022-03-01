@@ -48,7 +48,7 @@ class UserDetailsFragment:Fragment(R.layout.fragment_userdetails) {
             .load(user?.image)
             .into(binding.imgUserAvatar)
 
-        binding.tvUserName.text = user?.lastName+" "+user?.lastName
+        binding.tvUserName.text = user?.firstName+" "+user?.lastName
         binding.tvNationalCode.text = user?.nationalCode
     }
 
