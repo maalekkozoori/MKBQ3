@@ -13,5 +13,6 @@ class ShareViewModel : ViewModel() {
 
 
 
-    val usersList = MutableLiveData<List<User>>()
+
+    var usersList = arrayListOf<User>()
 }

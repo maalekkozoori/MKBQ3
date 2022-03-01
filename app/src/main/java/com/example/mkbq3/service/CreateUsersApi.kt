@@ -25,4 +25,7 @@ interface CreateUsersApi {
     @POST("users/token")
     fun imageUrl(@Path("token") token:String, @Body image: Bitmap): Call<ImageUpload>
 
+    @GET("users/{userId}")
+    fun getUserInfo(@Path("userId") userId: String): Call<User>
+
 }

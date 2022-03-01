@@ -26,11 +26,6 @@ class CustomAdapter(private val context: Context,private val list: List<User>?,p
         init {
 
             itemView.setOnClickListener(this)
-            itemView.setOnClickListener {
-                Toast.makeText(context,  list?.get(adapterPosition)?._id, Toast.LENGTH_SHORT).show()
-
-
-            }
         }
 
         fun bind(position: Int){

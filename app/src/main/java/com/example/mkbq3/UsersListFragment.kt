@@ -15,6 +15,7 @@ import com.example.mkbq3.databinding.FragmentUserslistBinding
 import com.example.mkbq3.service.NetworkManager
 import com.example.mkbq3.ui.CustomAdapter
 import com.example.mkbq3.ui.ShareViewModel
+import okhttp3.internal.userAgent
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,8 +35,8 @@ class UsersListFragment:Fragment(R.layout.fragment_userslist),CustomAdapter.OnIt
         val getUsers : Call<List<User>> = NetworkManager.service.getUsersList()
         getUsers.enqueue(object : Callback<List<User>>{
             override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
-                sharedViewModel.usersList.value = response.body()
-                val customAdapter = CustomAdapter(requireContext(),response.body(),this@UsersListFragment)
+                sharedViewModel.usersList = ArrayList(response.body())
+                val customAdapter = CustomAdapter(requireContext(), sharedViewModel.usersList,this@UsersListFragment)
                 binding.rcUsersList.adapter = customAdapter
                 binding.rcUsersList.layoutManager =LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
             }
@@ -49,11 +50,12 @@ class UsersListFragment:Fragment(R.layout.fragment_userslist),CustomAdapter.OnIt
 
     override fun onItemClick(position: Int) {
         val sharedViewModel = ViewModelProvider(requireActivity()).get(ShareViewModel::class.java)
-        sharedViewModel.userId = sharedViewModel.usersList.value?.get(position).toString()
+        sharedViewModel.userId = sharedViewModel.usersList[position]._id
         parentFragmentManager.commit {
             setReorderingAllowed(true)
             replace<UserDetailsFragment>(R.id.fragmentContainer)
             addToBackStack(null)
         }
+
     }
 }
