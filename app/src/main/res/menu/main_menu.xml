@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/createUserFragment"
+        android:icon="@drawable/ic_baseline_person_add_24"
+        android:title="Create User" />
+    <item
+        android:id="@+id/sendImageFragment"
+        android:icon="@drawable/ic_baseline_image_24"
+        android:title="Upload" />
+    <item
+        android:id="@+id/usersListFragment"
+        android:icon="@drawable/ic_baseline_view_list_24"
+        android:title="UsersList" />
+    <item
+        android:id="@+id/userDetailsFragment"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="User Detail" />
+</menu>

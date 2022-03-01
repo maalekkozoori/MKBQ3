@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/createUserFragment">
+
+    <fragment
+        android:id="@+id/createUserFragment"
+        android:name="com.example.mkbq3.CreateUserFragment"
+        android:label="CreateUserFragment" />
+    <fragment
+        android:id="@+id/sendImageFragment"
+        android:name="com.example.mkbq3.ui.SendImageFragment"
+        android:label="SendImageFragment" >
+        <argument
+            android:name="userId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/usersListFragment"
+        android:name="com.example.mkbq3.UsersListFragment"
+        android:label="UsersListFragment" >
+        <action
+            android:id="@+id/action_usersListFragment_to_userDetailsFragment"
+            app:destination="@id/userDetailsFragment" />
+        <argument
+            android:name="userId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailsFragment"
+        android:name="com.example.mkbq3.UserDetailsFragment"
+        android:label="UserDetailsFragment" />
+</navigation>
